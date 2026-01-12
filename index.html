@@ -25,11 +25,21 @@
             color: white;
         }
 
+        /* Gaya untuk menu yang terkunci */
         .nav-locked {
-            opacity: 0.4;
-            pointer-events: none;
+            opacity: 0.5;
             cursor: not-allowed;
             filter: grayscale(1);
+            position: relative;
+        }
+        
+        .nav-locked::after {
+            content: "\f023";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            font-size: 10px;
         }
 
         .bg-card-gradient {
@@ -129,7 +139,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-blue-900">Akses Terkunci</h3>
-                                <p class="text-xs text-gray-500">Isi biodata untuk dapat mengakses layanan PIP digital SMP N 4 Majenang.</p>
+                                <p class="text-xs text-gray-500">Silakan masukkan NISN Anda untuk membuka akses fitur PIP Digital.</p>
                             </div>
                         </div>
 
@@ -137,7 +147,7 @@
                             <div class="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
                                 <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold mb-3 inline-block">LANGKAH 1</span>
                                 <h4 class="font-bold text-sm mb-1 uppercase tracking-tight">Isi Formulir</h4>
-                                <p class="text-xs text-gray-500 mb-5">Sebelum mengisi biodata, siapkan NISN dan NIS lalu silakan klik tombol di bawah!</p>
+                                <p class="text-xs text-gray-500 mb-5">Jika belum pernah mengisi biodata, silakan klik tombol di bawah!</p>
                                 <a href="https://wartam-mjng.github.io/biodata/" target="_blank" class="block w-full text-center bg-green-600 text-white py-2.5 rounded-xl text-sm font-bold hover:bg-green-700 transition shadow-lg btn-pulse">
                                     <i class="fas fa-external-link-alt mr-2 text-xs"></i>Buka Link Biodata
                                 </a>
@@ -146,11 +156,11 @@
                             <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
                                 <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold mb-3 inline-block">LANGKAH 2</span>
                                 <h4 class="font-bold text-sm mb-1 uppercase tracking-tight">Validasi NISN</h4>
-                                <p class="text-xs text-gray-500 mb-3">Masukkan NISN Anda untuk membuka kunci menu.</p>
+                                <p class="text-xs text-gray-500 mb-3">Masukkan 10 digit NISN yang sudah terdaftar.</p>
                                 <div class="space-y-3">
-                                    <input type="text" id="valNisn" maxlength="10" placeholder="Masukkan 10 digit NISN..." class="w-full p-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                                    <input type="text" id="valNisn" maxlength="10" placeholder="Contoh: 0123456789" class="w-full p-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono">
                                     <button onclick="validateSiswa()" id="btnValidate" class="w-full bg-blue-700 text-white py-2.5 rounded-xl text-sm font-bold hover:bg-blue-800 transition">
-                                        Validasi Sekarang
+                                        Buka Akses Menu
                                     </button>
                                 </div>
                             </div>
@@ -160,12 +170,12 @@
             </div>
         </main>
 
-        <!-- Halaman: Beranda -->
+        <!-- Halaman Lainnya (Tetap Sama) -->
         <main id="home" class="page">
             <div class="bg-blue-600 p-8 md:p-14 text-white relative overflow-hidden">
                 <div class="relative z-10 max-w-2xl animate-fade-in">
                     <h1 class="text-2xl md:text-4xl font-extrabold mb-4 uppercase tracking-tight">PIP SMP NEGERI 4 MAJENANG</h1>
-                    <p class="text-base md:text-lg mb-8 opacity-90 leading-relaxed">Selamat datang kembali! Akses layanan Anda telah terbuka sepenuhnya.</p>
+                    <p class="text-base md:text-lg mb-8 opacity-90 leading-relaxed">Akses layanan digital Program Indonesia Pintar kini tersedia di genggaman Anda.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button onclick="showPage('cek')" class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-300 transition">Cek Status Penerima</button>
                     </div>
@@ -195,70 +205,29 @@
         <main id="info" class="page p-6 md:p-12">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold mb-8 text-blue-800">Informasi Program PIP</h2>
-                
                 <div class="space-y-8">
-                    <!-- Syarat Penerima -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex items-center space-x-4 mb-6">
                             <div class="bg-blue-100 p-3 rounded-xl text-blue-600"><i class="fas fa-user-check text-xl"></i></div>
                             <h3 class="text-xl font-bold text-blue-900">Syarat Penerima PIP</h3>
                         </div>
                         <ul class="space-y-4 text-gray-700 text-sm leading-relaxed">
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i>
-                                <span>Terdaftar di DTKS (Data Terpadu Kesejahteraan Sosial) yang datanya bisa ditanyakan di desa.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i>
-                                <span>Peserta didik pemegang KIP (Kartu Indonesia Pintar).</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i>
-                                <span>Peserta didik dari keluarga miskin/rentan miskin (PKH/KKS).</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i>
-                                <span>Peserta didik yang memiliki status yatim piatu/yatim/piatu.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i>
-                                <span>Peserta didik yang terkena dampak bencana alam.</span>
-                            </li>
+                            <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Terdaftar di DTKS Desa.</span></li>
+                            <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Pemegang KIP (Kartu Indonesia Pintar).</span></li>
+                            <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Keluarga miskin (PKH/KKS).</span></li>
+                            <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Yatim Piatu/Yatim/Piatu.</span></li>
                         </ul>
                     </div>
-
-                    <!-- Regulasi Penggunaan -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex items-center space-x-4 mb-6">
                             <div class="bg-yellow-100 p-3 rounded-xl text-yellow-700"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
                             <h3 class="text-xl font-bold text-blue-900">Regulasi Penggunaan Dana</h3>
                         </div>
-                        <p class="text-sm text-gray-500 mb-6 italic border-l-4 border-yellow-400 pl-4">Dana PIP wajib digunakan untuk biaya personal pendidikan, di antaranya:</p>
                         <ul class="space-y-4 text-gray-700 text-sm leading-relaxed">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Membeli buku tulis dan alat tulis sekolah.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Membeli pakaian seragam sekolah dan sepatu.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Membiayai transportasi peserta didik ke sekolah.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Uang saku harian peserta didik di sekolah.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Biaya kursus atau les tambahan bagi peserta didik.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i>
-                                <span>Membeli alat pendukung belajar (misal: alat praktik sekolah).</span>
-                            </li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Membeli buku dan alat tulis.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Seragam dan sepatu sekolah.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Transportasi ke sekolah.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Uang saku dan biaya kursus.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -276,49 +245,17 @@
             </div>
         </main>
 
-        <!-- Halaman: Cek Penerima -->
+        <!-- Halaman: Cek Status -->
         <main id="cek" class="page p-6 md:p-12">
             <div class="max-w-2xl mx-auto">
                 <h2 class="text-3xl font-bold mb-4 text-blue-800">Cek Status Penerima</h2>
                 <div class="bg-white p-8 rounded-3xl shadow-xl border space-y-6">
-                    <div class="relative">
-                        <input type="text" id="nisnInput" maxlength="10" placeholder="Masukkan 10 digit NISN..." class="w-full p-4 bg-gray-50 border-2 border-gray-200 rounded-2xl font-mono text-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all pl-12">
-                        <i class="fas fa-id-card absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
-                    </div>
-                    
-                    <button onclick="searchData()" id="btnCek" class="w-full bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-800 transition-all shadow-lg active:scale-95">
-                        <i class="fas fa-search mr-2"></i>Cari Data
-                    </button>
-                    
-                    <div id="resultArea" class="mt-10 hidden animate-fade-in space-y-4">
-                        <div class="bg-card-gradient p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                            <i class="fas fa-check-circle absolute -right-4 -top-4 text-white/10 text-[120px]"></i>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-                                <div class="space-y-4">
-                                    <div>
-                                        <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">Nama Lengkap</p>
-                                        <p id="resNama" class="font-bold text-2xl uppercase leading-tight">-</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">Nomor NISN</p>
-                                        <p id="resNisn" class="font-mono text-lg font-semibold">-</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">Sekolah</p>
-                                        <p id="resSekolah" class="font-semibold">-</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white/10 p-5 rounded-2xl border border-white/20 backdrop-blur-sm space-y-4">
-                                    <div>
-                                        <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">Status Pencairan</p>
-                                        <p id="resStatus" class="font-black text-xl text-yellow-300">-</p>
-                                    </div>
-                                    <div class="pt-2 border-t border-white/10">
-                                        <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">Tahun Anggaran</p>
-                                        <p id="resTahun" class="font-bold text-lg">-</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <input type="text" id="nisnInput" maxlength="10" placeholder="Masukkan 10 digit NISN..." class="w-full p-4 bg-gray-50 border-2 border-gray-200 rounded-2xl font-mono text-xl outline-none">
+                    <button onclick="searchData()" id="btnCek" class="w-full bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-800 transition shadow-lg">Cari Data</button>
+                    <div id="resultArea" class="mt-10 hidden space-y-4">
+                        <div class="bg-card-gradient p-8 rounded-3xl text-white shadow-2xl">
+                             <p id="resNama" class="font-bold text-2xl uppercase">-</p>
+                             <p id="resStatus" class="font-black text-xl text-yellow-300 mt-4">-</p>
                         </div>
                     </div>
                 </div>
@@ -335,55 +272,80 @@
         const GID_BIODATA = '1543225125'; 
         const GID_UTAMA = '0'; 
 
+        // Inisialisasi status unlock dari LocalStorage
         let isUnlocked = localStorage.getItem('pip_unlocked') === 'true';
 
         window.onload = () => {
             if (isUnlocked) {
                 applyUnlock();
+                // Jika sudah unlock, tampilkan beranda
                 showPage('home');
+            } else {
+                // Jika belum, paksa ke halaman biodata
+                showPage('biodata');
             }
         };
 
         async function validateSiswa() {
             const nisnVal = document.getElementById('valNisn').value.trim();
             const btn = document.getElementById('btnValidate');
-            if (nisnVal.length < 10) { alert("Harap masukkan 10 digit NISN!"); return; }
+            
+            if (nisnVal.length < 10) { 
+                alert("Harap masukkan 10 digit NISN yang valid!"); 
+                return; 
+            }
+
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memeriksa...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Validasi...';
+
             try {
-                const fetchUrl = `${BASE_CSV_URL}&gid=${GID_BIODATA}`;
-                const response = await fetch(fetchUrl);
+                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_BIODATA}`);
                 const dataText = await response.text();
                 const rows = dataText.split(/\r?\n/).map(row => row.split(','));
+                
+                // Cari NISN di kolom pertama (index 0)
                 const found = rows.find(r => r[0] && r[0].trim() === nisnVal);
+
                 if (found) {
                     localStorage.setItem('pip_unlocked', 'true');
                     isUnlocked = true;
                     applyUnlock();
                     showPage('home');
-                    showToast("✅ Validasi Berhasil!");
+                    showToast("✅ Berhasil! Menu telah terbuka.");
                 } else {
-                    alert("❌ NISN tidak ditemukan di Sheet BIODATA. Pastikan Anda sudah mengisi formulir biodata.");
+                    alert("❌ NISN tidak terdaftar! Pastikan Anda sudah mengisi formulir biodata terlebih dahulu.");
                 }
-            } catch (e) { alert("⚠️ Gagal terhubung ke database."); } finally {
+            } catch (e) { 
+                alert("⚠️ Masalah koneksi. Silakan coba lagi nanti."); 
+            } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Validasi Sekarang';
+                btn.innerHTML = 'Buka Akses Menu';
             }
         }
 
         function applyUnlock() {
-            document.querySelectorAll('.nav-item').forEach(item => { item.classList.remove('nav-locked'); });
+            // Hapus kelas locked dari semua menu navigasi
+            document.querySelectorAll('.nav-item').forEach(item => { 
+                item.classList.remove('nav-locked'); 
+            });
         }
 
         function showPage(id) {
-            if (!isUnlocked && id !== 'biodata') return;
+            // Jika belum unlock dan mencoba akses selain biodata, arahkan ke biodata
+            if (!isUnlocked && id !== 'biodata') {
+                showToast("🔒 Menu terkunci. Verifikasi NISN dahulu!");
+                return;
+            }
+
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             const target = document.getElementById(id);
             if(target) target.classList.add('active');
+
             document.querySelectorAll('.nav-item').forEach(l => {
                 l.classList.remove('active');
                 if (l.id === `nav-${id}`) l.classList.add('active');
             });
+
             if (window.innerWidth < 768) toggleSidebar(true);
             window.scrollTo(0,0);
         }
@@ -391,16 +353,25 @@
         function toggleSidebar(forceClose = false) {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
-            if (forceClose) { sidebar.classList.add('sidebar-closed'); overlay.style.display = 'none'; } 
-            else { sidebar.classList.toggle('sidebar-closed'); overlay.style.display = sidebar.classList.contains('sidebar-closed') ? 'none' : 'block'; }
+            if (forceClose) { 
+                sidebar.classList.add('sidebar-closed'); 
+                overlay.style.display = 'none'; 
+            } else { 
+                sidebar.classList.toggle('sidebar-closed'); 
+                overlay.style.display = sidebar.classList.contains('sidebar-closed') ? 'none' : 'block'; 
+            }
         }
 
         function showToast(text) {
             const t = document.createElement('div');
-            t.className = "fixed top-20 left-1/2 -translate-x-1/2 bg-blue-900 text-white px-6 py-3 rounded-full shadow-2xl z-[200] font-bold text-sm text-center animate-bounce";
+            t.className = "fixed bottom-10 left-1/2 -translate-x-1/2 bg-blue-900 text-white px-6 py-3 rounded-full shadow-2xl z-[200] font-bold text-sm text-center";
             t.innerText = text;
             document.body.appendChild(t);
-            setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.5s ease'; setTimeout(() => t.remove(), 500); }, 3000);
+            setTimeout(() => { 
+                t.style.opacity = '0'; 
+                t.style.transition = 'opacity 0.5s ease'; 
+                setTimeout(() => t.remove(), 500); 
+            }, 3000);
         }
 
         async function searchData() {
@@ -408,26 +379,29 @@
             const btn = document.getElementById('btnCek');
             const resArea = document.getElementById('resultArea');
             if(!nisn) return;
+
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mencari...';
+            btn.innerHTML = 'Mencari...';
+
             try {
-                const fetchUrl = `${BASE_CSV_URL}&gid=${GID_UTAMA}`;
-                const response = await fetch(fetchUrl);
+                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_UTAMA}`);
                 const dataText = await response.text();
                 const rows = dataText.split(/\r?\n/).map(row => row.split(','));
                 const found = rows.find(r => r[0] && r[0].trim() === nisn);
+                
                 if (found) {
-                    document.getElementById('resNisn').innerText = found[0] ? found[0].trim() : "-";
-                    document.getElementById('resNama').innerText = found[1] ? found[1].trim() : "-";
-                    document.getElementById('resSekolah').innerText = found[2] ? found[2].trim() : "-";
-                    document.getElementById('resStatus').innerText = found[3] ? found[3].trim() : "-";
-                    document.getElementById('resTahun').innerText = found[4] ? found[4].trim() : "-";
+                    document.getElementById('resNama').innerText = found[1] || "-";
+                    document.getElementById('resStatus').innerText = found[3] || "-";
                     resArea.classList.remove('hidden');
-                    resArea.scrollIntoView({ behavior: 'smooth' });
-                } else { alert("NISN tidak ditemukan."); resArea.classList.add('hidden'); }
-            } catch (e) { alert("Gagal memuat data."); } finally {
+                } else { 
+                    alert("Data tidak ditemukan."); 
+                    resArea.classList.add('hidden'); 
+                }
+            } catch (e) { 
+                alert("Gagal memuat data."); 
+            } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-search mr-2"></i>Cari Data';
+                btn.innerHTML = 'Cari Data';
             }
         }
     </script>
