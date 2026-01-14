@@ -25,11 +25,12 @@
             color: white;
         }
 
-        /* Gaya untuk menu yang terkunci */
+        /* Gaya untuk menu yang terkunci - DIPERKUAT */
         .nav-locked {
-            opacity: 0.5;
-            cursor: not-allowed;
-            filter: grayscale(1);
+            opacity: 0.4 !important;
+            cursor: not-allowed !important;
+            filter: grayscale(1) !important;
+            pointer-events: none !important; /* Mencegah klik sama sekali */
             position: relative;
         }
         
@@ -40,6 +41,7 @@
             position: absolute;
             right: 15px;
             font-size: 10px;
+            color: #facc15;
         }
 
         .bg-card-gradient {
@@ -99,24 +101,25 @@
         </div>
 
         <nav id="main-nav" class="mt-6 px-3 space-y-1">
-            <a href="#" id="nav-home" onclick="showPage('home')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
+            <a href="javascript:void(0)" id="nav-home" onclick="showPage('home')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
                 <i class="fas fa-home w-5"></i>
                 <span>Beranda</span>
             </a>
-            <a href="#" id="nav-info" onclick="showPage('info')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
+            <a href="javascript:void(0)" id="nav-info" onclick="showPage('info')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
                 <i class="fas fa-info-circle w-5"></i>
                 <span>Informasi Program</span>
             </a>
-            <a href="#" id="nav-biodata" onclick="showPage('biodata')" class="nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
-                <i class="fas fa-user-edit w-5"></i>
-                <span>Isi Biodata</span>
-            </a>
-            <a href="#" id="nav-tabungan" onclick="showPage('tabungan')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
+            <a href="javascript:void(0)" id="nav-tabungan" onclick="showPage('tabungan')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
                 <i class="fas fa-piggy-bank w-5"></i>
                 <span>Cek Tabungan</span>
             </a>
+            <a href="javascript:void(0)" id="nav-biodata" onclick="showPage('biodata')" class="nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-white/5">
+                <i class="fas fa-user-edit w-5"></i>
+                <span>Isi Biodata</span>
+            </a>
+
             <div class="pt-4 pb-2 px-4 uppercase text-[10px] text-blue-400 font-bold tracking-widest">Layanan Utama</div>
-            <a href="#" id="nav-cek" onclick="showPage('cek')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-yellow-400 hover:text-blue-900 border border-dashed border-blue-400/30">
+            <a href="javascript:void(0)" id="nav-cek" onclick="showPage('cek')" class="nav-item nav-locked flex items-center space-x-3 px-4 py-3 rounded-lg transition hover:bg-yellow-400 hover:text-blue-900 border border-dashed border-blue-400/30">
                 <i class="fas fa-search w-5"></i>
                 <span class="font-bold">Cek Status</span>
             </a>
@@ -138,7 +141,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-blue-900">Akses Terkunci</h3>
-                                <p class="text-xs text-gray-500">Silakan masukkan NISN Anda untuk membuka akses fitur PIP Digital.</p>
+                                <p class="text-xs text-gray-500">Silakan masukkan NISN Anda untuk membuka akses fitur PIP Digital SMP N 4 Majenang.</p>
                             </div>
                         </div>
 
@@ -146,7 +149,7 @@
                             <div class="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
                                 <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold mb-3 inline-block">LANGKAH 1</span>
                                 <h4 class="font-bold text-sm mb-1 uppercase tracking-tight">Isi Formulir</h4>
-                                <p class="text-xs text-gray-500 mb-5">Jika belum pernah mengisi biodata, silakan klik tombol di bawah!</p>
+                                <p class="text-xs text-gray-500 mb-5">Jika belum pernah mengisi biodata melalui Google Form, silakan klik tombol di bawah!</p>
                                 <a href="https://wartam-mjng.github.io/biodata/" target="_blank" class="block w-full text-center bg-green-600 text-white py-2.5 rounded-xl text-sm font-bold hover:bg-green-700 transition shadow-lg btn-pulse">
                                     <i class="fas fa-external-link-alt mr-2 text-xs"></i>Buka Link Biodata
                                 </a>
@@ -155,11 +158,11 @@
                             <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
                                 <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold mb-3 inline-block">LANGKAH 2</span>
                                 <h4 class="font-bold text-sm mb-1 uppercase tracking-tight">Validasi NISN</h4>
-                                <p class="text-xs text-gray-500 mb-3">Masukkan 10 digit NISN yang sudah terdaftar.</p>
+                                <p class="text-xs text-gray-500 mb-3">Masukkan 10 digit NISN Anda untuk membuka kunci menu.</p>
                                 <div class="space-y-3">
                                     <input type="text" id="valNisn" maxlength="10" placeholder="Contoh: 0123456789" class="w-full p-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono">
                                     <button onclick="validateSiswa()" id="btnValidate" class="w-full bg-blue-700 text-white py-2.5 rounded-xl text-sm font-bold hover:bg-blue-800 transition">
-                                        Buka Akses Menu
+                                        Validasi & Buka Menu
                                     </button>
                                 </div>
                             </div>
@@ -169,12 +172,12 @@
             </div>
         </main>
 
-        <!-- Halaman Lainnya (Tetap Sama) -->
+        <!-- Halaman: Beranda -->
         <main id="home" class="page">
             <div class="bg-blue-600 p-8 md:p-14 text-white relative overflow-hidden">
                 <div class="relative z-10 max-w-2xl animate-fade-in">
                     <h1 class="text-2xl md:text-4xl font-extrabold mb-4 uppercase tracking-tight">PIP SMP NEGERI 4 MAJENANG</h1>
-                    <p class="text-base md:text-lg mb-8 opacity-90 leading-relaxed">Akses layanan digital Program Indonesia Pintar kini tersedia di genggaman Anda.</p>
+                    <p class="text-base md:text-lg mb-8 opacity-90 leading-relaxed">Selamat datang! Seluruh fitur layanan digital kini sudah dapat Anda akses sepenuhnya.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button onclick="showPage('cek')" class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-300 transition">Cek Status Penerima</button>
                     </div>
@@ -214,19 +217,6 @@
                             <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Terdaftar di DTKS Desa.</span></li>
                             <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Pemegang KIP (Kartu Indonesia Pintar).</span></li>
                             <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Keluarga miskin (PKH/KKS).</span></li>
-                            <li class="flex items-start"><i class="fas fa-circle text-[8px] mt-1.5 mr-3 text-blue-400"></i><span>Yatim Piatu/Yatim/Piatu.</span></li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <div class="bg-yellow-100 p-3 rounded-xl text-yellow-700"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
-                            <h3 class="text-xl font-bold text-blue-900">Regulasi Penggunaan Dana</h3>
-                        </div>
-                        <ul class="space-y-4 text-gray-700 text-sm leading-relaxed">
-                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Membeli buku dan alat tulis.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Seragam dan sepatu sekolah.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Transportasi ke sekolah.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-sm mt-0.5 mr-3 text-green-500"></i><span>Uang saku dan biaya kursus.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -271,26 +261,29 @@
         const GID_BIODATA = '1543225125'; 
         const GID_UTAMA = '0'; 
 
-        // Inisialisasi status unlock dari LocalStorage
-        let isUnlocked = localStorage.getItem('pip_unlocked') === 'true';
-
-        window.onload = () => {
-            if (isUnlocked) {
+        // Fungsi pengecekan status awal yang lebih ketat
+        function checkStatus() {
+            const status = localStorage.getItem('pip_unlocked');
+            if (status === 'true') {
                 applyUnlock();
-                // Jika sudah unlock, tampilkan beranda
                 showPage('home');
             } else {
-                // Jika belum, paksa ke halaman biodata
+                // Pastikan terkunci jika tidak ada status true
+                isUnlocked = false; 
                 showPage('biodata');
             }
-        };
+        }
+
+        let isUnlocked = false;
+
+        window.onload = checkStatus;
 
         async function validateSiswa() {
             const nisnVal = document.getElementById('valNisn').value.trim();
             const btn = document.getElementById('btnValidate');
             
             if (nisnVal.length < 10) { 
-                alert("Harap masukkan 10 digit NISN yang valid!"); 
+                alert("Harap masukkan 10 digit NISN!"); 
                 return; 
             }
 
@@ -298,11 +291,11 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Validasi...';
 
             try {
-                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_BIODATA}`);
+                // Menambahkan timestamp agar tidak terkena cache browser (cache-busting)
+                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_BIODATA}&t=${new Date().getTime()}`);
                 const dataText = await response.text();
                 const rows = dataText.split(/\r?\n/).map(row => row.split(','));
                 
-                // Cari NISN di kolom pertama (index 0)
                 const found = rows.find(r => r[0] && r[0].trim() === nisnVal);
 
                 if (found) {
@@ -310,29 +303,32 @@
                     isUnlocked = true;
                     applyUnlock();
                     showPage('home');
-                    showToast("✅ Berhasil! Menu telah terbuka.");
+                    showToast("✅ Berhasil! Akses menu terbuka.");
                 } else {
-                    alert("❌ NISN tidak terdaftar! Pastikan Anda sudah mengisi formulir biodata terlebih dahulu.");
+                    alert("❌ NISN tidak ditemukan! Silakan isi biodata terlebih dahulu.");
                 }
             } catch (e) { 
-                alert("⚠️ Masalah koneksi. Silakan coba lagi nanti."); 
+                alert("⚠️ Gagal memuat database. Periksa koneksi internet Anda."); 
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Buka Akses Menu';
+                btn.innerHTML = 'Validasi & Buka Menu';
             }
         }
 
         function applyUnlock() {
-            // Hapus kelas locked dari semua menu navigasi
+            isUnlocked = true;
             document.querySelectorAll('.nav-item').forEach(item => { 
                 item.classList.remove('nav-locked'); 
             });
         }
 
         function showPage(id) {
-            // Jika belum unlock dan mencoba akses selain biodata, arahkan ke biodata
+            // Logika pengunci yang lebih aman
             if (!isUnlocked && id !== 'biodata') {
-                showToast("🔒 Menu terkunci. Verifikasi NISN dahulu!");
+                // Jika isUnlocked masih false, paksa kembali ke biodata
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById('biodata').classList.add('active');
+                showToast("🔒 Akses Terkunci! Verifikasi NISN dahulu.");
                 return;
             }
 
@@ -362,7 +358,11 @@
         }
 
         function showToast(text) {
+            const existing = document.getElementById('custom-toast');
+            if(existing) existing.remove();
+
             const t = document.createElement('div');
+            t.id = 'custom-toast';
             t.className = "fixed bottom-10 left-1/2 -translate-x-1/2 bg-blue-900 text-white px-6 py-3 rounded-full shadow-2xl z-[200] font-bold text-sm text-center";
             t.innerText = text;
             document.body.appendChild(t);
@@ -383,7 +383,7 @@
             btn.innerHTML = 'Mencari...';
 
             try {
-                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_UTAMA}`);
+                const response = await fetch(`${BASE_CSV_URL}&gid=${GID_UTAMA}&t=${new Date().getTime()}`);
                 const dataText = await response.text();
                 const rows = dataText.split(/\r?\n/).map(row => row.split(','));
                 const found = rows.find(r => r[0] && r[0].trim() === nisn);
